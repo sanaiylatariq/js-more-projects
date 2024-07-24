@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculate Pregnancy Due Date</h1>
+   <label for="">First Date of Last Mnestural Period</label> <input  type="date" name="" id="lmp" placeholder="First Date of Last Mnestural Period"><br><br>
+    <button onclick="preg()">Calculate</button><br>
+<div id="result"></div>
+<h1>Calculate Gestational Age (weeks)</h1>
+<p><label for="">First Date of Last Mnestural Period</label><input  type="date" name="" id="lmp1" placeholder="First Date of Last Mnestural Period">
+
+</p>
+
+<p><label for="">Current Date</label><input type="date" name="" id="cd" placeholder="Current Date">
+
+</p>
+<button onclick="preg1()">Calculate</button>
+<div id="result1"></div>
+<h1>Estimated Baby Weight Guide</h1>
+<p><label for="">Gestational Age(weeks)</label><input  placeholder="Gestational Age" type= "number" id="ga"></p>
+<button onclick="prego()">Calculate</button><br><br>
+<div id="resukt"></div><br>
+<div id="resukt1"> <br>12 weeks: 14 grams
+    <br><br>
+    20 weeks: 300 grams
+    <br><br>
+    28 weeks: 1,000 grams
+    <br><br>
+    32 weeks: 1,800 grams
+    <br><br>
+    36 weeks: 2,700 grams
+    <br><br>
+    40 weeks: 3,400 grams</div>
+<style>
+    h1{
+        color: #df25ae;
+    }
+    input{
+    
+    padding: 12px 23px;
+    background-color: pink;
+    font-size: larger;
+    border: none;
+    width: 146px;
+    color: #c4462a;
+    border-radius: 30px;
+    }
+    label{
+        
+    margin-right: 20px;
+    padding: 10px;
+    color: #c36893;
+
+    }
+    button{
+    width: 140px;
+    padding: 15px;
+    border-radius: 47px;
+    border: none;
+    margin-left: 155px;
+    font-size: 20px;
+    color: #c3462a;
+    background-color: #ffc0cb;
+    }</style>
+
+
+<script>
+function preg(){
+    let lmp = new Date(document.querySelector('#lmp').value)
+let dd = new Date(lmp.getTime()+280*24*60*60*1000)
+let result = dd.toDateString()
+document.querySelector('#result').textContent = `Your Due Date is ` +result
+document.querySelector('#result').style.padding = '20px'
+document.querySelector('#result').style.width = '300px'
+document.querySelector('#result').style.textAlign = 'center'
+document.querySelector('#result').style.borderRadius = '40px'
+document.querySelector('#result').style.backgroundColor = 'pink'
+document.querySelector('#result').style.color = 'brown'
+document.querySelector('#result').style.marginTop = '20px'
+document.querySelector('#result').style.marginBottom = '20px'
+}
+
+
+
+function preg1(){
+
+let lmp = new Date(document.querySelector('#lmp1').value)
+let cd = new Date(document.querySelector('#cd').value)
+let ga = cd-lmp
+let result = ga/(7*24*60*60*1000)
+document.querySelector('#result1').textContent = `Your Estimated Gestational Age is `+result.toFixed(2)+`weeks`
+document.querySelector('#result1').style.padding = '20px'
+document.querySelector('#result1').style.width = '300px'
+document.querySelector('#result1').style.textAlign = 'center'
+document.querySelector('#result1').style.borderRadius = '40px'
+document.querySelector('#result1').style.backgroundColor = 'pink'
+document.querySelector('#result1').style.color = 'brown'
+document.querySelector('#result1').style.marginTop = '20px'
+document.querySelector('#result1').style.marginBottom = '20px'
+
+
+}
+
+function prego(){
+let ga = parseFloat(document.querySelector('#ga').value)
+let result = 1000 * Math.pow((ga - 10) / 20, 2);
+document.querySelector('#resukt').textContent = `Estimated Baby Weight is ${result.toFixed(2)} grams`
+document.querySelector('#resukt').style.padding = '20px'
+document.querySelector('#resukt').style.width = '300px'
+document.querySelector('#resukt').style.textAlign = 'center'
+document.querySelector('#resukt').style.borderRadius = '40px'
+document.querySelector('#resukt').style.backgroundColor = 'pink'
+document.querySelector('#resukt').style.color = 'brown'
+
+document.querySelector('#resukt1').style.width = '150px'
+document.querySelector('#resukt1').style.borderRadius = '40px'
+document.querySelector('#resukt1').style.padding = '20px'
+document.querySelector('#resukt1').style.marginTop = '20px'
+document.querySelector('#resukt1').style.marginBottom = '20px'
+document.querySelector('#resukt1').style.border = 'none'
+
+
+document.querySelector('#resukt1').style.color = 'brown'
+document.querySelector('#resukt1').style.backgroundColor = 'pink'
+document.querySelector('#resukt1').style.marginTop = '20px'
+document.querySelector('#resukt1').style.marginBottom = '20px'
+
+
+document.querySelector('#resukt1').textContent = `12 weeks =>14 grams 
+
+20 weeks => 300 gm
+
+
+28 weeks =>1000 gm
+
+32 weeks=>1800 gm
+
+36 weeks=>2700 gm
+
+40 weeks=>3400 gm`
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
